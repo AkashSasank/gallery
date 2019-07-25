@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Form sample</title></head>
+    <body>
+        <form id="form">
+            <label>Name</label>
+            <input type="text" placeholder="name" name="name">
+            <input type="number" placeholder="age" name="age">
+            <input type="tel" placeholder="+919496143226" name="phone">
+            <input type="email" placeholder="abc@xyz.com" name="email">
+        </form>
+
+        <button onclick="myFunction()" value="Submit">Submit</button>
+                   
+        <p id="out"></p>
+        <p id="out1"></p>
+
+
+       
+        
+           
+        <script>
+       function myFunction() {
+            var x = document.getElementById("form");
+            var text = "";
+            var i;
+            for (i = 0; i < x.length ;i++) {
+                text += JSON.stringify(x.elements[i].name)+ ":"+JSON.stringify(x.elements[i].value )+',';
+            }
+            text += JSON.stringify("eof")+":"+JSON.stringify("yes")
+            var t = '{'+text+'}';
+        
+ 
+            document.getElementById("out").innerHTML = t;
+            var k = JSON.parse(t)
+            document.getElementById("out1").innerHTML =  k.age;
+            
+        }
+        
+        </script>
+
+    </body>
+</html>
